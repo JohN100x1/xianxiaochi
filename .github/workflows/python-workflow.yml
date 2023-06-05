@@ -19,13 +19,17 @@ jobs:
         run: pip install poetry
 
       - name: Install Dependencies
+        working-directory: ./backend
         run: poetry install
 
       - name: Run pytest
+        working-directory: ./backend
         run: poetry run pytest
 
       - name: Run black
+        working-directory: ./backend
         run: poetry run black . --check
 
       - name: Run isort
+        working-directory: ./backend
         run: poetry run isort . --check
